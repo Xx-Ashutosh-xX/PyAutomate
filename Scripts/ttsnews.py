@@ -6,12 +6,13 @@ from playsound import playsound
 from os import system
 from googletrans import Translator
 
-#languages use ISO language codes. 
-#examples of language codes:
+# languages use ISO language codes.
+# examples of language codes:
 #French = 'fr'
 #English = 'en'
 #Hindi = 'hi'
 #Spanish = 'es'
+
 
 def play_article(url, lang='en'):
     system('clear')
@@ -29,19 +30,17 @@ def play_article(url, lang='en'):
     ]
 
     article_text = " ".join(sentence_list_final)
-    #creating an instance of the Translator class from googletrans library
-    #in order to translate the article to the chosen language.
+    # creating an instance of the Translator class from googletrans library
+    # in order to translate the article to the chosen language.
     translator = Translator()
     article_text_translated = translator.translate(article_text, dest=lang)
-    
+
     try:
         tts = gTTS(article_text_translated.text, lang=lang)
         tts.save("article.mp3")
         playsound("article.mp3")
     except ValueError:
         print(f'ERROR: The selected language "{lang}" is not supported.')
-
-
 
 
 if __name__ == '__main__':
