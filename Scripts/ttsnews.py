@@ -1,10 +1,11 @@
-import requests
+from os import system
+
 import fire
+import requests
 from bs4 import BeautifulSoup
+from googletrans import Translator
 from gtts import gTTS
 from playsound import playsound
-from os import system
-from googletrans import Translator
 
 # languages use ISO language codes.
 # examples of language codes:
